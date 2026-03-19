@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "✅ Entorno configurado correctamente - Proyecto Duoc UC"
+    nombre_proyecto = os.environ.get("AMB_PROYECTO", "No configurado")
+    
+    return f"✅ Entorno configurado correctamente - Proyecto: {nombre_proyecto}"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
