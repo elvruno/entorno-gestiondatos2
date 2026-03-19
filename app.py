@@ -1,9 +1,12 @@
 from flask import Flask
+import os
+
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    return "¡Entorno Python configurado con éxito!"
+def home():
+    return "✅ Entorno configurado correctamente - Proyecto Duoc UC"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
